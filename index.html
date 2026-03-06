@@ -193,12 +193,29 @@
                     <a href="https://wa.me/541166070147" target="_blank" class="btn btn-whatsapp-large"><i class="fab fa-whatsapp"></i> Enviar WhatsApp</a>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="tel" placeholder="Teléfono" required>
-                        <textarea rows="5" placeholder="Mensaje o consulta" required></textarea>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                    </form>
+                   <form id="contactForm" onsubmit="sendWhatsApp(event)">
+<input type="text" id="nombre" placeholder="Nombre completo" required>
+<input type="tel" id="telefono" placeholder="Teléfono" required>
+<textarea id="mensaje" rows="5" placeholder="Mensaje o consulta" required></textarea>
+<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+</form>
+
+<script>
+function sendWhatsApp(event) {
+event.preventDefault();
+
+let nombre = document.getElementById("nombre").value;
+let telefono = document.getElementById("telefono").value;
+let mensaje = document.getElementById("mensaje").value;
+
+let url = "https://wa.me/541166070147?text=" +
+"Nombre: " + nombre + "%0A" +
+"Teléfono: " + telefono + "%0A" +
+"Mensaje: " + mensaje;
+
+window.open(url, "_blank");
+}
+</script>
                 </div>
             </div>
         </div>
@@ -220,6 +237,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
